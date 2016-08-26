@@ -1,0 +1,10 @@
+{
+  "name": "Snake_Ladder",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "meteor-node-stubs": "~0.2.0"
+  }
+}

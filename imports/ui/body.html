@@ -1,0 +1,46 @@
+<body>
+  <h1>Welcome To Snack & Ladder Online</h1>
+  {{> login}}
+  {{> play}}
+  {{> result}}
+</body>
+
+<template name="login">
+  <p>Enter your nickname to login:</p>
+  <form id="login" class="new-player">
+    <input type="text" name="text" placeholder="Example: Benedict">
+  </form>
+  <button type="submit" form="login" value="Submit">Join</button>
+</template>
+
+<template name="play">
+  <p>Roll dice to play.</p>
+  <button>Roll</button>
+  <p>You rolled {{number}}.</p>
+</template>
+
+<template name="result">
+  {{#tableWrapper heading="Score Board"}}
+    {{#each players}}
+      {{> text}}
+    {{/each}}
+  {{/tableWrapper}}
+</template>
+
+<template name="tableWrapper">
+  <h2>{{this.heading}}</h2>
+  <table>
+    <thead>
+      <tr>
+        <td>Turn</td>
+        <td>Player</td>
+        <td>Position</td>
+        <td>Score</td>
+      </tr>
+    </thead>
+    <tbody>
+      {{> UI.contentBlock}}
+    </tbody>
+  </table>
+  <p>{{this.footer}}</p>
+</template>
