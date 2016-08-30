@@ -1,5 +1,6 @@
 <body>
-  <h1>Welcome To Snack & Ladder Online</h1>
+  <h2>Welcome To Snack & Ladder Online</h2>
+  <p><img src = "http://cliparts.co/cliparts/8TE/b9o/8TEb9oxGc.gif" height = 100px/></p>
   {{> login}}
   {{> play}}
   {{> result}}
@@ -20,27 +21,27 @@
 </template>
 
 <template name="result">
-  {{#tableWrapper heading="Score Board"}}
-    {{#each players}}
-      {{> text}}
-    {{/each}}
-  {{/tableWrapper}}
+  <div class = "table-responsive">
+      <table class = 'board'>
+        <tr class = 'success active'>
+          <th>Turn</th>
+          <th>Player</th>
+          <th>Score</th>
+          <th>Position</th>
+        </tr>
+
+        {{#each players}}
+          {{> player}}
+        {{/each}}
+
+      </table>
+    </div>
 </template>
 
-<template name="tableWrapper">
-  <h2>{{this.heading}}</h2>
-  <table>
-    <thead>
-      <tr>
-        <td>Turn</td>
-        <td>Player</td>
-        <td>Position</td>
-        <td>Score</td>
-      </tr>
-    </thead>
-    <tbody>
-      {{> UI.contentBlock}}
-    </tbody>
-  </table>
-  <p>{{this.footer}}</p>
+<template name="player">
+  <tr>
+    <td class = "player-name">{{text}}</td>
+    <td class = 'player-score' id = 'player-score'>{{score}}</td>
+    <td class = 'player-position'>{{position}}</td>
+  </tr>
 </template>

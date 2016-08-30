@@ -1,10 +1,69 @@
 /* CSS declarations go here */
-.new-player input {
-  box-sizing: border-box;
-  padding: 10px 0;
-  background: transparent;
-  width: 100%;
-  padding-right: 80px;
-  font-size: 1em;
+
+body{
+  color: DarkBlue;
+  background: url('http://www.1wallpaperhd.com/wp-content/uploads/Love/FTP1/1920x1200/Love%20Ladder%20Wallpapers%20HD%201920x1200.jpg');
+  background-size: cover;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  text-align: center;
+}
+
+.table{
+  border: black 1px;
 }
  
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: 100%;
+}
+
+.btn-maroon{
+  background-color: maroon;
+  opacity: 50%;
+  color: white;
+  float: left;
+}
+
+.information {
+  color: maroon;
+  vertical-align: center;
+
+  line-height: 40px;
+  margin-left: 80px;
+}
+
+#login-buttons {
+  display: block;
+}
+
+ 
+h1 {
+  font-size: 3em;
+
+  display: inline-block;
+}
+
+td {
+  height: 40px;
+}
+
+.player-turn {
+  background-image: url("http://www.ifnaturallearning.com/wp-content/uploads/2013/09/arrow-maroon-2.png");
+  background-size: 40px;
+  background-repeat: no-repeat;
+
+}
+ 
+
+@media (max-width: 600px) {
+ 
+  .search {
+    width: 150px;
+    clear: both;
+  }
+ 
+  .new-task input {
+    padding-bottom: 5px;
+  }
+}

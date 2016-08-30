@@ -4,13 +4,11 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Mongo } from 'meteor/mongo';
 
-Players = new Mongo.Collection('players');
-
-//import { Players } from '../api/players.js';
+import { Players } from '../api/players.js';
 
 import './body.html';
 
-Template.body.events({
+Template.player.events({
   'submit .new-player'(event) {
     // Prevent default browser form submit
     event.preventDefault();
@@ -51,8 +49,8 @@ Template.play.events({
   },
 });
 
-/*Template.body.helpers({
+Template.player.helpers({
   players() {
     return Players.find({}, { sort: { createdAt: -1 } });
   },
-});*/
+});
