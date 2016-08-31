@@ -8,21 +8,36 @@ body{
   text-align: center;
 }
 
-.table{
-  border: black 1px;
+input{
+  background: rgba(255,255,255,0.3);
+  font-size: 20px;
+  border: 0;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+}
+
+button{
+  border: 0;
+  background: rgba(255,200,200,0.7);
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+#join{
+  background:  white;
+}
+
+button:focus{
+  background: rgba(255,200,200,1);
 }
  
 .container {
   max-width: 800px;
   margin: 0 auto;
   min-height: 100%;
-}
-
-.btn-maroon{
-  background-color: maroon;
-  opacity: 50%;
-  color: white;
-  float: left;
 }
 
 .information {
@@ -37,13 +52,6 @@ body{
   display: block;
 }
 
- 
-h1 {
-  font-size: 3em;
-
-  display: inline-block;
-}
-
 td {
   height: 40px;
 }
@@ -55,15 +63,3 @@ td {
 
 }
  
-
-@media (max-width: 600px) {
- 
-  .search {
-    width: 150px;
-    clear: both;
-  }
- 
-  .new-task input {
-    padding-bottom: 5px;
-  }
-}

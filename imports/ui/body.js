@@ -7,15 +7,16 @@ import { Mongo } from 'meteor/mongo';
 import { Players } from '../api/players.js';
 
 import './body.html';
+import './player.js';
 
-Template.player.events({
-  'submit .new-player'(event) {
+Template.login.events({
+  'submit .login'(event) {
     // Prevent default browser form submit
     event.preventDefault();
  
     // Get value from form element
-    const target = event.target;
-    const text = target.text.value;
+    target = event.target;
+    text = target.text.value;
  
     // Insert a task into the collection
     Players.insert({
@@ -29,7 +30,11 @@ Template.player.events({
   },
 });
 
-
+Template.login.helpers({
+  name() {
+    return Players.find();
+  },
+});
 
 Template.play.onCreated(function playOnCreated() {
   // counter starts at 0
@@ -49,8 +54,10 @@ Template.play.events({
   },
 });
 
-Template.player.helpers({
+Template.body.helpers({
+  //return all players
   players() {
-    return Players.find({}, { sort: { createdAt: -1 } });
-  },
+    return Players.find(); //{ sort: { score: -1 } }
+  }
 });
+

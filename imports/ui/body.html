@@ -7,21 +7,21 @@
 </body>
 
 <template name="login">
-  <p>Enter your nickname to login:</p>
-  <form id="login" class="new-player">
+  <form id="login">
+    Enter your nickname to login:
     <input type="text" name="text" placeholder="Example: Benedict">
+    <button type="submit" form="login" value="Submit">Join</button>
   </form>
-  <button type="submit" form="login" value="Submit">Join</button>
+  {{name}}
 </template>
 
 <template name="play">
-  <p>Roll dice to play.</p>
   <button>Roll</button>
-  <p>You rolled {{number}}.</p>
+  You rolled {{number}}.
 </template>
 
 <template name="result">
-  <div class = "table-responsive">
+  <div class = "table">
       <table class = 'board'>
         <tr class = 'success active'>
           <th>Turn</th>
@@ -36,12 +36,4 @@
 
       </table>
     </div>
-</template>
-
-<template name="player">
-  <tr>
-    <td class = "player-name">{{text}}</td>
-    <td class = 'player-score' id = 'player-score'>{{score}}</td>
-    <td class = 'player-position'>{{position}}</td>
-  </tr>
 </template>
