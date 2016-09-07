@@ -1,8 +1,9 @@
 <body>
-  <!--<p><img src = "http://cliparts.co/cliparts/8TE/b9o/8TEb9oxGc.gif" height = 100px/></p>-->
-  <img src="http://bestanimations.com/Games/Dice/rolling-dice-gif-7.gif" height = 48px>
+  <!-- header -->
+  <img src="http://bestanimations.com/Games/Dice/rolling-dice-gif-7.gif" height = 60px>
   <div class="heading"> Snake & Ladder Online </div>
-  <img src="http://bestanimations.com/Games/Dice/rolling-dice-gif-7.gif" height = 48px>
+  <img src="http://bestanimations.com/Games/Dice/rolling-dice-gif-7.gif" height = 60px>
+  <!-- layout -->
   {{> login}}
   {{> play}}
   {{> restart}}
@@ -19,54 +20,21 @@
   </form>
 </template>
 
+<template name="play">
+  <button class="{{#if noGame}}no-display{{/if}}">Roll</button>
+  <div class="add {{#if noGame}}no-display{{/if}}"> + {{number}} </div>
+</template>
+
 <template name="restart">
   <button>Restart</button>
 </template>
 
-<template name="play">
-    <button>Roll</button>
-    <div class="add"> + {{number}} </div>
-  </template>
-
-<template name="board">
-  <div>
-    {{#each boxes}}
-      {{> box}}
-    {{/each}}
-  </div>  
-</template>
-
-<template name="box">
-  <div class="board {{player}}">
-    {{index}}
-  </div>
-</template>
-
 <template name="result">
   <div>
-        {{#each players}}
-          {{> player}}
-        {{/each}}
-  </div>
-</template>
-
-<template name="detail">
-  <div class="{{#if noGame}}no-display{{/if}}">
-    {{#each snakes}}
-      {{> snake}}
-    {{/each}}
-    {{#each ladders}}
-      {{> ladder}}
+    {{#each players}}
+    {{> player}}
     {{/each}}
   </div>
-</template>
-
-<template name="snake">
-  <div class = "detail" id="s{{number}}"> snake </div>
-</template>
-
-<template name="ladder">
-  <div class = "detail" id="l{{number}}"> ladder </div>
 </template>
 
 <template name="player">
@@ -76,6 +44,39 @@
   <div class="score {{#if active}}player-zoomed{{/if}}" id="p{{index}}">
     {{score}}
   </div>
+</template>
+
+<template name="board">
+  <div>
+    {{#each boxes}}
+    {{> box}}
+    {{/each}}
+  </div>  
+</template>
+
+<template name="box">
+  <div class="board {{player}}" id="{{index}}">
+    {{index}}
+  </div>
+</template>
+
+<template name="detail">
+  <div>
+    {{#each snakes}}
+    {{> snake}}
+    {{/each}}
+    {{#each ladders}}
+    {{> ladder}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="snake">
+  <div class = "detail"> Snake </div>
+</template>
+
+<template name="ladder">
+  <div class = "detail"> Ladder </div>
 </template>
 
 <template name="winner">
