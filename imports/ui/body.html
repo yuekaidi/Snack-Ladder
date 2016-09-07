@@ -1,39 +1,85 @@
 <body>
-  <h2>Welcome To Snack & Ladder Online</h2>
-  <p><img src = "http://cliparts.co/cliparts/8TE/b9o/8TEb9oxGc.gif" height = 100px/></p>
+  <!--<p><img src = "http://cliparts.co/cliparts/8TE/b9o/8TEb9oxGc.gif" height = 100px/></p>-->
+  <img src="http://bestanimations.com/Games/Dice/rolling-dice-gif-7.gif" height = 48px>
+  <div class="heading"> Snake & Ladder Online </div>
+  <img src="http://bestanimations.com/Games/Dice/rolling-dice-gif-7.gif" height = 48px>
   {{> login}}
   {{> play}}
+  {{> restart}}
   {{> result}}
+  {{> board}}
+  {{> detail}}
+  {{> winner}}
 </body>
 
 <template name="login">
   <form id="login">
-    Enter your nickname to login:
-    <input type="text" name="text" placeholder="Example: Benedict">
-    <button type="submit" form="login" value="Submit">Join</button>
+    <input type="text" name="Name" placeholder="Name">
+    <input type="submit" value="Join">
   </form>
-  {{name}}
+</template>
+
+<template name="restart">
+  <button>Restart</button>
 </template>
 
 <template name="play">
-  <button>Roll</button>
-  You rolled {{number}}.
+    <button>Roll</button>
+    <div class="add"> + {{number}} </div>
+  </template>
+
+<template name="board">
+  <div>
+    {{#each boxes}}
+      {{> box}}
+    {{/each}}
+  </div>  
+</template>
+
+<template name="box">
+  <div class="board {{player}}">
+    {{index}}
+  </div>
 </template>
 
 <template name="result">
-  <div class = "table">
-      <table class = 'board'>
-        <tr class = 'success active'>
-          <th>Turn</th>
-          <th>Player</th>
-          <th>Score</th>
-          <th>Position</th>
-        </tr>
-
+  <div>
         {{#each players}}
           {{> player}}
         {{/each}}
+  </div>
+</template>
 
-      </table>
-    </div>
+<template name="detail">
+  <div class="{{#if noGame}}no-display{{/if}}">
+    {{#each snakes}}
+      {{> snake}}
+    {{/each}}
+    {{#each ladders}}
+      {{> ladder}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="snake">
+  <div class = "detail" id="s{{number}}"> snake </div>
+</template>
+
+<template name="ladder">
+  <div class = "detail" id="l{{number}}"> ladder </div>
+</template>
+
+<template name="player">
+  <div class="player {{player}}">
+    {{name}}
+  </div>
+  <div class="score {{#if active}}player-zoomed{{/if}}" id="p{{index}}">
+    {{score}}
+  </div>
+</template>
+
+<template name="winner">
+  <div class="winner {{#if noWinner}}no-display{{/if}}">
+    {{winner}} is the winner.
+  </div>
 </template>
